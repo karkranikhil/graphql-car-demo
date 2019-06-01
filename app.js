@@ -1,23 +1,46 @@
 const express = require('express')
 const app = express()
-
 const {ApolloServer, gql} = require('apollo-server-express')
 
+const users = require('./data').users
+const cars = require('./data').cars
+const me = users[0]
 const typeDefs = gql`
     type Query {
-        me:User
+        users:[User]
+        user(id:Int!):User
+
+        me:User,
+
+        cars:[Car],
+        car(id:Int!):Car
     }
 
     type User{
+        id:ID!
         name:String!
+    }
 
+    type Car {
+        id:ID!
+        make:String!
+        model:String!
+        color:String!
     }
 `
 const resolvers = {
     Query:{
-        me:()=> {
-            return ({'name':'nikhil karkra'})
-        }
+        users:()=>users,
+        user:(parent, {id})=>{
+           const user = users.filter(user=>user.id === id)
+           return user[0]
+        },
+        cars:()=>cars,
+        car:(parent, {id})=>{
+           const car = cars.filter(car=>car.id === id)
+           return car[0]
+        },
+        me:()=> me
     }
     
 }
