@@ -1,23 +1,25 @@
 
 {
-  me{
-    name
-  }
+
+/* get all users name*/
   users{
     name
   }
+/* get users name and car make using id*/
   user(id:1){
     name
     car{
       make
     }
   }
+/* get car make and owner name using id*/
   car(id:1){
     make
     owner{
       name
     }
   }
+/* get cars make, model and owner name */
   cars{
     make
     model
@@ -25,4 +27,26 @@
       name
     }
   }
+/* Mutation to make user*/
+mutation{
+  makeUser(id:4,name:"nikhil"){
+    name
+  }
+}
+/* Mutation to create car*/
+mutation{
+  createCar(id:4, make:"Toyota",model:"Etios", color:"Black"){
+    make
+  }
+}
+/* Mutation to remove user based on ID*/
+mutation{
+  removeUser(id:4)
+}
+
+/* Mutation to remove car based on ID*/
+mutation{
+  removeCar(id:3)
+}
+
 }
