@@ -51,3 +51,6 @@ It return data based on the Schema and the resolver
 
 ## gql 
 It allow us to create a scheme using JS es6 template literal syntax
+
+## Relationship between types using graphql
+Suppose we have car query and User query then we have to make a relationship between these two queries like Each user belong to car and atleast one car belong to user

@@ -1,0 +1,28 @@
+
+{
+  me{
+    name
+  }
+  users{
+    name
+  }
+  user(id:1){
+    name
+    car{
+      make
+    }
+  }
+  car(id:1){
+    make
+    owner{
+      name
+    }
+  }
+  cars{
+    make
+    model
+    owner{
+      name
+    }
+  }
+}
